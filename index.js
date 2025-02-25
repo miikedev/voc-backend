@@ -37,6 +37,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // Routes
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the VOC News API!" })
+});
 app.use("/api/auth", authRoute)
 app.use("/api/news", newsRoute)
 
