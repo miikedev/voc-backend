@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
+const cors = require("cors")
 const passport = require("./config/passport")
 const authRoute = require("./routes/auth.route")
 const newsRoute = require("./routes/news.route")
@@ -10,6 +11,7 @@ require("dotenv").config()
 const app = express()
 
 // Middleware
+app.use(cors({}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
   app.use(
