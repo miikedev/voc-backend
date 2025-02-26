@@ -80,7 +80,7 @@ exports.getAllNews = async (req, res) => {
 // Read Single News
 exports.getNewsById = async (req, res) => {
   try {
-    const news = await News.findById(req.params.id).populate('author');
+    const news = await News.find({slug: req.params.slug}).populate('author');
     if (!news) {
       return res.status(404).json({ message: 'News not found' });
     }
